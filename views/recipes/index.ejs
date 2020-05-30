@@ -1,0 +1,16 @@
+<%- include('../partials/header.ejs') %> 
+
+<h1>Sharecipes</h1>
+
+<a href="recipes/new"><button>Add a New Recipe</button></a>
+
+    <% recipes.forEach(function(recipe) { %>
+        <div>
+            <p><strong>Title: <%= recipe.title %></strong></p>
+            <p><strong>Ingredients: <%= recipe.ingredients %></strong></p>
+            <p><strong>Instructions: <%= recipe.instructions %></strong></p>
+
+            <img src="<%= recipe.imgUrl %>" alt="">
+        </div>
+    <% }) %>
+    
