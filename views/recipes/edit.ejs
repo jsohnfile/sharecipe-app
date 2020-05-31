@@ -1,0 +1,9 @@
+<%- include('../partials/header.ejs') %> 
+<h2>Edit a Recipe</h2>
+<form action="/recipes" method="POST">
+    <label>Title: <input type="text" name="title" value="<%= recipe.title %>"><br></label>
+    <label>Ingredients: <input type="text" name="ingredients" value="<%= recipe.ingredients %>"><br></label>
+    <label>Instructions: <textarea name="instructions" ><%= recipe.instructions %>"</textarea><br></label>
+    <label>Image URL: <input type="text" name="imgUrl" value="<%= recipe.imgUrl %>"><br></label>
+    <input type="submit" value="Submit">
+</form> 
