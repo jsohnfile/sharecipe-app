@@ -10,3 +10,21 @@ a {
 #instructions {
   white-space: pre-wrap;
 }
+
+img {
+  width: 500px;
+  height: 300px;
+}
+
+.recipe {
+  border: 5px solid black;
+  padding: 50px;
+}
+
+h1 {
+  text-align: center;
+}
+
+nav {
+  text-align: right;
+}

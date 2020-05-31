@@ -2,19 +2,18 @@
 
 <h1>Sharecipes</h1>
 
-<a href="recipes/new"><button>Add a New Recipe</button></a>
+<a href="recipes/new"><button>Add a New Recipe</button></a><br><br>
 
     <% recipes.forEach(function(recipe) { %>
-        <div>
-            <p><strong>Title: <%= recipe.title %></strong></p>
+        <div class= "recipe">
+            <h2><%= recipe.title %></h2>
+            <img src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
             <p><strong>Ingredients: <%= recipe.ingredients %></strong></p>
-
             <p ><strong>Instructions: </strong></p>
                 <p id="instructions"><%= recipe.instructions %></p>
 
-            <img src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
-        </div>
+            <a href="/recipes/<%= recipe._id %>/edit"><button>Edit Recipe</button></a>
+        </div><br><br>
 
-        <a href="/recipes/<%= recipe._id %>/edit"><button>Edit Recipe</button></a>
     <% }) %>
     
