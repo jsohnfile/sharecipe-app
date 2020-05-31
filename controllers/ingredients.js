@@ -9,6 +9,6 @@ function createIngredient(req, res) {
     Ingredient.create(req.body, function(err, ingredient){
         console.log("req.body:", req.body);
         console.log("ingredient: ",ingredient);
-        res.render("recipes/new2", {ingredient});
+        res.render("recipes/new", {ingredient});
     });
 }

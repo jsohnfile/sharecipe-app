@@ -3,11 +3,17 @@
 
 
 <form action="/recipes" method="POST">
-    <label>Title: <input type="text" name="title"><br></label>
+    <label>Title: <input type="text" name="title" value="<%= ingredient ? ingredient.title :  %>"><br></label>
     <label>Ingredients: <input type="text" name="name" >
         <button type="submit" formaction="/ingredients" method="POST">Add</button><br>
     </label>
-    <br><label>Instructions: <textarea name="instructions" ></textarea><br></label>
-    <label>Image URL: <input type="text" name="imgUrl" ><br></label>
+     <% if(ingredients.length) { %>
+            <% ingredients.forEach(function(ingredient) { %>
+              <button>x <%= ingredient.name %></button>
+           <% }) %>
+      <% } %>
+      
+    <br><label>Instructions: <textarea name="instructions" > <%= ingredients.instructions %> </textarea></label><br>
+    <label>Image URL: <input type="text" name="imgUrl" value="<%=ingredients.imgUrl %>"><br></label>
     <input type="submit" value="Add Recipe">
 </form> 

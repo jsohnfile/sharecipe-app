@@ -8,11 +8,13 @@
         <div>
             <p><strong>Title: <%= recipe.title %></strong></p>
             <p><strong>Ingredients: <%= recipe.ingredients %></strong></p>
-            <p><strong>Instructions: <%= recipe.instructions %></strong></p>
 
-            <img src="<%= recipe.imgUrl %>" alt="">
+            <p ><strong>Instructions: </strong></p>
+                <p id="instructions"><%= recipe.instructions %></p>
+
+            <img src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
         </div>
 
-        <a href="/recipes/<%= recipe._id %>/edit">Edit Recipe</a>
+        <a href="/recipes/<%= recipe._id %>/edit"><button>Edit Recipe</button></a>
     <% }) %>
     
