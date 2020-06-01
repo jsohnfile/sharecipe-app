@@ -9,6 +9,10 @@ const recipeSchema = new Schema({
     ingredients: String,
     instructions: String,
     imgUrl: String,
+    share: {
+        type: Boolean,
+        default: false
+    },
     comments: {
         type: Schema.Types.ObjectId,
         ref: 'Comment'

@@ -5,6 +5,10 @@ const ingredientSchema = new Schema({
     title: String,
     instructions: String,
     imgUrl: String,
+    share: {
+        type: Boolean,
+        default: false,
+    },
     name: {
         type: String,
         required: true

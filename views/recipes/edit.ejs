@@ -5,5 +5,8 @@
     <label>Ingredients: <input type="text" name="ingredients" value="<%= recipe.ingredients %>"><br></label>
     <label>Instructions: <textarea name="instructions" ><%= recipe.instructions %></textarea><br></label>
     <label>Image URL: <input type="text" name="imgUrl" value="<%= recipe.imgUrl %>"><br></label>
+    <input type="checkbox" name="share" <%= recipe.share ? 'checked' : '' %>> Share with everyone <br>
     <input type="submit" value="Submit">
 </form> 
+
+<%- include('../partials/footer.ejs') %> 

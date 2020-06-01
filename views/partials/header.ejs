@@ -9,11 +9,20 @@
 <body>
 
   <nav>
+    <a class="navlink" href="/recipes">ALL Recipes</a>
     <% if (user) { %>
-      <p><%= user.name %></p>
-      <a href="/logout">LOGOUT</a>
+      <div class="dropdown">
+        <button class="dropbtn"><img id ="profile-pic" src="<%= user.avatar %>">&nbsp; <%= user.name %></button>
+        <div class="dropdown-content">
+          <a class="navlink" href="/recipes/myaccount">My Account</a>
+          <a class="navlink" href="/logout">LOGOUT</a>
+        </div>
+      </div>
+      
+
     <% } else { %>
-      <a href="/auth/google">LOGIN WITH GOOGLE</a>
+      <a href="/auth/google">LOGIN</a>
     <% } %>
 
   </nav>
+  <main>

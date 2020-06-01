@@ -3,7 +3,7 @@
 
 
 <form action="/recipes" method="POST">
-    <label>Title: <input type="text" name="title" value="<%= ingredient ? ingredient.title :  %>"><br></label>
+    <label>Title: <input type="text" name="title" value="<%= ingredient ? ingredient.title : "" %>"><br></label>
     <label>Ingredients: <input type="text" name="name" >
         <button type="submit" formaction="/ingredients" method="POST">Add</button><br>
     </label>
@@ -13,7 +13,10 @@
            <% }) %>
       <% } %>
       
-    <br><label>Instructions: <textarea name="instructions" > <%= ingredients.instructions %> </textarea></label><br>
+    <br><label>Instructions: <textarea name="instructions" ><%= ingredients.instructions %></textarea><br></label>
     <label>Image URL: <input type="text" name="imgUrl" value="<%=ingredients.imgUrl %>"><br></label>
+    <input type="checkbox" name="share" <%= ingredients.share ? 'checked' : '' %>> Share with everyone <br>
     <input type="submit" value="Add Recipe">
 </form> 
+
+<%- include('../partials/footer.ejs') %> 

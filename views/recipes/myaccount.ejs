@@ -1,0 +1,22 @@
+<%- include('../partials/header.ejs') %> 
+
+<h1> My Sharecipes</h1>
+
+<a href="new"><button>Add a New Recipe</button></a><br><br>
+
+    <% recipes.forEach(function(recipe) { %>
+        <div class= "recipe">
+            <p>Status: <span id="status-message"><%= recipe.share ? 'Shared' : 'Private' %></span></p>
+            <h2><%= recipe.title %></h2>
+            <img src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
+            <p><strong>Ingredients: <%= recipe.ingredients %></strong></p>
+            <p ><strong>Instructions: </strong></p>
+                <p id="instructions"><%= recipe.instructions %></p>
+
+            <a href="/recipes/<%= recipe._id %>/edit"><button>Edit Recipe</button></a>
+        </div><br><br>
+
+    <% }) %>
+
+
+<%- include('../partials/footer.ejs') %> 

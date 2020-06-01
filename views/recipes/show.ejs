@@ -1,19 +1,13 @@
 <%- include('../partials/header.ejs') %> 
 
-<table>
-    <tr>
-        <td>Title</td>
-        <td>Actions</td>
-    </tr>
-    <% recipes.forEach(function(recipe) { %>
-        <div>
-            <p><strong><%= recipe.title %></strong></p>
-            <p><strong><%= recipe.ingredients %></strong></p>
-            <p><strong><%= recipe.instructions %></strong></p>
+<h1><%= recipe.title %></h1><br>
+     <div class= "recipe-detail">
+        <h2><%= recipe.title %></h2>
+        <img src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
+        <p><strong>Ingredients: <%= recipe.ingredients %></strong></p>
+        <p ><strong>Instructions: </strong></p>
+        <p id="instructions"><%= recipe.instructions %></p>
 
-            <img src="<%= recipe.imgUrl %>" alt="">
-        </div>
-    <% }) %>
-    
-    <a href="/recipes/<%= recipe._id %>/edit">Edit Recipe</a>
-</table>
+    </div>
+
+ <%- include('../partials/footer.ejs') %> 

@@ -4,10 +4,12 @@ const router = express.Router();
 const recipesCtrl = require('../controllers/recipes');
 
 router.get('/', recipesCtrl.index);
-router.get('/new', isLoggedIn, recipesCtrl.new);
-router.post('/', isLoggedIn, recipesCtrl.create);
-router.get('/:id/edit', isLoggedIn, recipesCtrl.edit)
-router.put('/:id', isLoggedIn, recipesCtrl.update)
+router.get('/new', recipesCtrl.new);
+router.get('/myaccount', recipesCtrl.myAccount)
+router.get('/:id', recipesCtrl.show);
+router.post('/', recipesCtrl.create);
+router.get('/:id/edit', recipesCtrl.edit)
+router.put('/:id', recipesCtrl.update)
 
 
 function isLoggedIn(req, res, next) {

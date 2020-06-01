@@ -7,11 +7,31 @@ module.exports = {
     new: newRecipe,
     create: createRecipe,
     edit,
-    update
+    update,
+    myAccount,
+    show
+}
+
+function show(req, res) {
+    console.log("req.params.id:", req.params.id)
+    Recipe.findById(req.params.id, function(err, recipe){
+        console.log("recipe to show: ", recipe)
+        res.render('recipes/show', {recipe})
+    })
+}
+
+function myAccount(req, res) {
+    Recipe.find({user: req.user}, function(err, recipes) {
+        console.log(recipes)
+        res.render('recipes/myaccount', {recipes})
+    });
+
 }
 
 function update(req, res) {
+    req.body.share = !!req.body.share
     Recipe.findByIdAndUpdate(req.params.id, req.body, function(err, recipe){
+        console.log("recipe: ", recipe)
         res.redirect(`/recipes`)
     })
 }
@@ -23,8 +43,10 @@ function edit(req, res) {
 }
 
 function createRecipe(req, res) {
+    req.body.share = !!req.body.share
+    req.body.user = req.user
     Recipe.create(req.body, function(err, recipe){
-        recipe.user = req.user.id
+        console.log("req.body: ", req.body)
         res.redirect('/recipes')
     })
 }
@@ -32,7 +54,7 @@ function createRecipe(req, res) {
 function newRecipe(req, res) {
     Recipe.find({}, function(err, recipes) {
         Ingredient.find({}, function(err, ingredients){
-            Ingredient.findOne({}, function(err,ingredient){
+            Ingredient.findOne({}, function(err, ingredient){
                 // Ingredient.findOne(ingredient => ingredient.createAt< Date.now())
                 //     console.log(ingredients);
                 //     let ingredient =ingredients[0]
@@ -47,7 +69,7 @@ function newRecipe(req, res) {
 }
 
 function index(req, res) {
-    Recipe.find({}, function(err, recipes) {
+    Recipe.find({share: true}, function(err, recipes) {
         console.log(recipes)
         res.render('recipes/index', {recipes})
     });
