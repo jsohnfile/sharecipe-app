@@ -15,14 +15,11 @@ const recipeSchema = new Schema({
         type: Boolean,
         default: false
     },
-    comments: {
-        type: Schema.Types.ObjectId,
-        ref: 'Comment'
-    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    refLink: String
 }, {
     timestamps: true
 })

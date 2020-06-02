@@ -1,26 +1,29 @@
 <%- include('../partials/header.ejs') %> 
-<h2>Add a recipe</h2>
+<h1><%= title %></h1>
 
-
-<form action="/recipes" method="POST">
-    <label>Title: <input type="text" name="title" value="<%= ingredient ? ingredient.title : "" %>"><br></label>
-    <label>Ingredients: <input id="ingredient-name" type="text" name="name" >
-        <button id="add-ingredient"type="submit" formaction="/ingredients" method="POST">Add</button><br>
+<section class="recipe-form">
+  <form action="/recipes" method="POST">
+      <label>Title: <input class="recipe-input" type="text" name="title" value="<%= ingredient ? ingredient.title : "" %>"><br></label>
+      <label>Ingredient(<small>Please Enter Qty/Unit of Measurement ie.</small>): <br>
+        <input class="recipe-input" type="text" name="name" placeholder="ie. steak - 8oz">
+          <button id="add-ingredient"type="submit" formaction="/ingredients" method="POST">Add</button><br>
+          
+      </label>
+       <% if(ingredients.length) { %>
+              <% ingredients.forEach(function(ingredient) { %>
+              <button class="pill" type="submit" formaction="/ingredients/<%= ingredient._id %>?_method=DELETE" method="POST">x <%= ingredient.name %></button>
+              <input type="hidden" value="<%= ingredient.name %>" name ="ingredients">
+             <% }); %>
+        <% } %>
         
-    </label>
-     <% if(ingredients.length) { %>
-            <% ingredients.forEach(function(ingredient) { %>
-            <button type="submit" formaction="/ingredients/<%= ingredient._id %>?_method=DELETE" method="POST">x <%= ingredient.name %></button>
-            <input type="hidden" value="<%= ingredient.name %>" name ="ingredients">
-           <% }); %>
-      <% } %>
+        <br><label>Instructions: <br>
+      <textarea id="instructions-text" name="instructions" ><%= ingredient ? ingredient.instructions: "" %></textarea><br></label>
+      <label>Image URL: <input class="recipe-input" type="text" name="imgUrl" value="<%= ingredient ? ingredient.imgUrl: "" %>"><br></label>
+      <label>Reference Link: <input class="recipe-input" type="text" name="refLink" value="<%= ingredient ? ingredient.refLink: "" %>"> </label>
+      <input type="checkbox" name="share" <%=ingredient ? (ingredient.share ? 'checked' : '') : "" %>> Share with everyone <br>
+      <input id="add-recipe-btn" type="submit" value="Add Recipe">
       
-      <br><label>Instructions: <br>
-        <textarea name="instructions" ><%= ingredient ? ingredient.instructions: "" %></textarea><br></label>
-    <label>Image URL: <input type="text" name="imgUrl" value="<%= ingredient ? ingredient.imgUrl: "" %>"><br></label>
-    <input type="checkbox" name="share" <%=ingredient ? (ingredient.share ? 'checked' : '') : "" %>> Share with everyone <br>
-    <input type="submit" value="Add Recipe">
-    
-</form> 
+  </form> 
+</section>
 
 <%- include('../partials/footer.ejs') %> 

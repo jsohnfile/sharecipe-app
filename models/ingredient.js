@@ -5,6 +5,7 @@ const ingredientSchema = new Schema({
     title: String,
     instructions: String,
     imgUrl: String,
+    reflink: String,
     share: {
         type: Boolean,
         default: false,
