@@ -19,10 +19,11 @@
          <% } %>
          <% if(comments.length){ %>
             <% comments.forEach(function(comment) { %>
-            <div id="comment">
-               <div><img class="profile-pic" src="<%= comment.user.avatar %>"> <%= comment.user.name %> Posted on <%= comment.createdAt.toLocaleDateString() %> </div>
-               <div><%= comment.content %></div>
-            </div>
+               <br>
+               <div id="comment">
+                  <div><small><img class="profile-pic" src="<%= comment.user.avatar %>"> <%= comment.user.name %> Posted on <%= comment.createdAt.toLocaleDateString() %></small> </div>
+                  <div id="comment-content"><%= comment.content %></div>
+               </div>
             <% }) %>
          <% } else { %>
          <h5>Be the first to comment!</h5>

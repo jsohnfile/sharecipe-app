@@ -8,6 +8,7 @@ router.get('/new', isLoggedIn, recipesCtrl.new);
 router.get('/myaccount', isLoggedIn, recipesCtrl.myAccount)
 router.post('/search', recipesCtrl.search)
 router.get('/:id', recipesCtrl.show);
+router.delete('/:id/:idx', recipesCtrl.deleteIngredient)
 router.post('/', isLoggedIn, recipesCtrl.create);
 router.get('/:id/edit', isLoggedIn, recipesCtrl.edit)
 router.put('/:id', isLoggedIn, recipesCtrl.update)

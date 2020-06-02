@@ -10,7 +10,15 @@ module.exports = {
     update,
     myAccount,
     show,
-    search
+    search,
+    deleteIngredient
+}
+
+function deleteIngredient() {
+    Recipe.findById(req.params.id, function(err, recipe){
+        recipe.ingredients.splice(idx, 1);
+        res.redirect(`recipes/${recipe._id}`)
+    })
 }
 
 function search(req, res) {
