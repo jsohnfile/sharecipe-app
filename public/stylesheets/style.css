@@ -39,6 +39,7 @@ body > main {
   background-color: white;
   padding: 20px;
   overflow-y: scroll;
+  text-shadow: 0 3px 3px gray;
 }
 #navlink {
   color: white;
@@ -58,7 +59,7 @@ img {
 }
 
 .recipe {
-  border-radius: 3%;
+  border-radius: 20px;
   box-shadow: 5px 5px 5px gray;
   border: 5px solid black;
   padding: 25px;
@@ -114,3 +115,19 @@ nav {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: transparent;}
+
+
+.recipe-detail {
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px gray;
+  border: 5px solid black;
+  padding: 25px;
+  width: 600px;
+}
+.comments {
+  border-radius: 3%;
+  box-shadow: 5px 5px 5px gray;
+  border: 5px solid black;
+  padding: 25px;
+  width: 600px;
+}

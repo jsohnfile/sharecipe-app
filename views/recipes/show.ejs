@@ -2,12 +2,27 @@
 
 <h1><%= recipe.title %></h1><br>
      <div class= "recipe-detail">
-        <h2><%= recipe.title %></h2>
+        <h2><%= recipe.title %> Recipe</h2>
         <img src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
         <p><strong>Ingredients: <%= recipe.ingredients %></strong></p>
         <p ><strong>Instructions: </strong></p>
         <p id="instructions"><%= recipe.instructions %></p>
+        <p>Shared by: <%= recipe.user.name %></p>
 
     </div>
+   <section id="comment-box"></section> -->
+      <form id="add-comment-form" method="POST" action="/recipes/<%= recipe._id %>/comments">
+         <textarea name="content"></textarea>
+         <input type="submit" value="Add Comment">
+      </form>
+      <!-- recipe.comments.forEach(function(comment) -->
+
+         <div>comment goes here</div>
+         <div>comment user name goes here</div>
+       <!-- }) -->
+      
+         <h5>Be the first to comment!</h5>
+   </section> -->
+
 
  <%- include('../partials/footer.ejs') %> 

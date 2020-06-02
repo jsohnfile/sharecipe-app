@@ -3,6 +3,9 @@
     <h1>Welcome to Sharecipe</h1>
     <h3>Make a recipe, share a recipe, save a recipe</h3>
 
+    <form action="/recipes/search" method="POST">
+        <label><input type="text" placeholder="Search.." name="search"></label><button type="submit">Find</button>
+    </form>
 
     <%- include('partials/footer.ejs') %> 
 

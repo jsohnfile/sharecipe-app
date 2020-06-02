@@ -9,12 +9,22 @@ module.exports = {
     edit,
     update,
     myAccount,
-    show
+    show,
+    search
+}
+
+function search(req, res) {
+    Recipe.find({ "ingredients": { "$regex": req.body.search, "$options": "i" } }, function(err, recipes){
+        console.log(err)
+        console.log("recipes: ", recipes)
+        res.render('recipes/search', {recipes})
+    })
 }
 
 function show(req, res) {
-    console.log("req.params.id:", req.params.id)
-    Recipe.findById(req.params.id, function(err, recipe){
+    Recipe.findById(req.params.id)
+    .populate('user')
+    .exec(function(err, recipe){
         console.log("recipe to show: ", recipe)
         res.render('recipes/show', {recipe})
     })
@@ -43,35 +53,32 @@ function edit(req, res) {
 }
 
 function createRecipe(req, res) {
+    console.log("req.body: ", req.body)
     req.body.share = !!req.body.share
     req.body.user = req.user
+    Ingredient.deleteMany({}, function(err){
+    })
     Recipe.create(req.body, function(err, recipe){
         console.log("req.body: ", req.body)
-        res.redirect('/recipes')
+        console.log("new recipe ", recipe)
+        res.redirect('/recipes/myaccount')
     })
 }
 
 function newRecipe(req, res) {
-    Recipe.find({}, function(err, recipes) {
         Ingredient.find({}, function(err, ingredients){
             Ingredient.findOne({}, function(err, ingredient){
-                // Ingredient.findOne(ingredient => ingredient.createAt< Date.now())
-                //     console.log(ingredients);
-                //     let ingredient =ingredients[0]
-                //     console.log("ingredient: ",ingredient);
                     
-                    res.render('recipes/new', {recipes, ingredients, ingredient})
-
-            })
+                    res.render('recipes/new', {ingredients, ingredient})
         });
             
     });
 }
 
 function index(req, res) {
-    Recipe.find({share: true}, function(err, recipes) {
-        console.log(recipes)
-        res.render('recipes/index', {recipes})
+    Recipe.find({share: true},function(err, recipes) {
+            console.log(recipes)
+            res.render('recipes/index', {recipes})
     });
 }
 
