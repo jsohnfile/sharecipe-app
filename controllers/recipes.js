@@ -53,8 +53,6 @@ function updateIngredients(req, res) {
 
 function search(req, res) {
     Recipe.find({ "ingredients": { "$regex": req.body.search, "$options": "i" } , share: true}, function(err, recipes){
-        console.log(err)
-        console.log("recipes: ", recipes)
         res.render('recipes/search', {title: 'Sharecipes', recipes})
     })
 }
@@ -65,7 +63,6 @@ function show(req, res) {
     .exec(function(err, recipe){
         Comment.find({recipe: recipe._id}).populate('user')
         .exec(function(err, comments){
-            console.log("recipe to show: ", recipe)
             res.render('recipes/show', {title: recipe.title, recipe, comments})
         })
     })
@@ -81,7 +78,6 @@ function myAccount(req, res) {
 function update(req, res) {
     req.body.share = !!req.body.share
     Recipe.findByIdAndUpdate(req.params.id, req.body, function(err, recipe){
-        console.log("recipe: ", recipe)
         res.redirect('/recipes/myaccount')
     })
 }
@@ -99,16 +95,13 @@ function createRecipe(req, res) {
     Ingredient.deleteMany({}, function(err){
     })
     Recipe.create(req.body, function(err, recipe){
-        console.log("req.body: ", req.body)
-        console.log("new recipe ", recipe)
         res.redirect('/recipes/myaccount')
     })
 }
 
 function newRecipe(req, res) {
         Ingredient.find({}, function(err, ingredients){
-            Ingredient.findOne({}, function(err, ingredient){
-                    
+            Ingredient.findOne({}, function(err, ingredient){                  
                     res.render('recipes/new', {title: 'Add a Sharecipe', ingredients, ingredient})
         });
             
@@ -117,7 +110,6 @@ function newRecipe(req, res) {
 
 function index(req, res) {
     Recipe.find({share: true},function(err, recipes) {
-            console.log(recipes)
             res.render('recipes/index', {title: "Sharecipes", recipes})
     });
 }
