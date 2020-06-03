@@ -19,7 +19,9 @@
                 <p id="instructions"><%= recipe.instructions %></p>
 
             <a href="/recipes/<%= recipe._id %>/edit"><button>Edit Recipe</button></a>
-            <a href="/recipes/<%= recipe._id %>/delete"><button>Delete Recipe</button></a>
+            <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <input type="submit" value="Delete">
+            </form>
         </div><br><br>
 
     <% }) %>

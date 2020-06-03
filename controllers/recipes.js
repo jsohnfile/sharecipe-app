@@ -16,7 +16,9 @@ module.exports = {
 }
 
 function deleteRecipe(req, res) {
-
+    Recipe.findByIdAndRemove(req.params.id, function(err){
+        res.redirect('/recipes/myaccount')
+    })
 }
 
 function updateIngredients(req, res) {

@@ -17,7 +17,7 @@
       <section id="comment-box">
          <% if(user) { %>
             <form id="add-comment-form" method="POST" action="/recipes/<%= recipe._id %>/comments">
-               <p><img class="profile-pic" src="<%= user.avatar %>"><small> <%= user.name %> </small></p>
+               <p class="comment-header"><img class="profile-pic" src="<%= user.avatar %>"><small id="username-comment"> <%= user.name %> </small></p>
                <textarea id="comments-text" name="content" placeholder="Leave A Comment.."></textarea>
                <input type="submit" value="Add Comment">
             </form>
@@ -26,7 +26,7 @@
             <% comments.forEach(function(comment) { %>
                <br>
                <div id="comment">
-                  <div><small><img class="profile-pic" src="<%= comment.user.avatar %>"> <%= comment.user.name %> Posted on <%= comment.createdAt.toLocaleDateString() %></small> </div>
+                  <div class="comment-header"><small><img class="profile-pic" src="<%= comment.user.avatar %>"> <%= comment.user.name %> Posted on <%= comment.createdAt.toLocaleDateString() %></small> </div>
                   <div id="comment-content"><%= comment.content %></div>
                </div>
             <% }) %>

@@ -67,16 +67,26 @@ img {
 .profile-pic {
   width: 25px;
   border-radius: 50%;
+  box-shadow: 3px 4px 5px gray;
+  margin-right: 5px;
+}
+#username-comment {
+  text-shadow: 3px 4px 5px gray;
+}
+.comment-header {
+  display: flex;
+  align-items: center;
+  color: black;
 }
 
 .recipe {
   background: url(https://i.imgur.com/RcNpKrD.jpg) no-repeat center center fixed;
   background-size: cover;
   border-radius: 20px;
-  box-shadow: 5px 5px 5px gray;
-  border: 5px solid black;
+  box-shadow: 5px 5px 5px black;
+  border: 5px solid gray;
   padding: 25px;
-  width: 400px;
+  width: 70%;
 }
 nav {
   text-align: right;
@@ -129,22 +139,27 @@ nav {
   background: url(https://i.imgur.com/RcNpKrD.jpg) no-repeat center center fixed;
   background-size: cover;
   border-radius: 20px;
-  box-shadow: 5px 5px 5px black;
-  border: 5px solid black;
+  box-shadow: 5px 5px 5px gray;
+  border: 5px solid white;
   padding: 25px;
   width: 600px;
+  color: black;
+  text-shadow: 0 3px 3px gray
 }
 #comment {
   border-radius: 20px;
   box-shadow: 5px 5px 5px gray;
-  border: 1px solid black;
+  border: 2px solid black;
   padding: 25px;
   width: 100%;
+  color: black;
+  text-shadow: 0 3px 3px white;
+  background-color: white;
 }
 #comment-box {
   border-radius: 20px;
   box-shadow: 5px 5px 5px gray;
-  border: 1px solid black;
+  border: 3px solid black;
   padding: 0 25px 25px 25px;
   width: 100%;
 }
@@ -168,6 +183,7 @@ nav {
   height: 50px;
   border-radius: 60px;
   padding: 15px;
+  box-shadow: 5px 5px 5px gray;
 }
 #pill {
   border-radius: 16px;
@@ -176,4 +192,5 @@ nav {
 .recipe-input {
   width: 100%;
 }
+
 
