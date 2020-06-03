@@ -52,7 +52,7 @@ function updateIngredients(req, res) {
 }
 
 function search(req, res) {
-    Recipe.find({ "ingredients": { "$regex": req.body.search, "$options": "i" } }, function(err, recipes){
+    Recipe.find({ "ingredients": { "$regex": req.body.search, "$options": "i" } , share: true}, function(err, recipes){
         console.log(err)
         console.log("recipes: ", recipes)
         res.render('recipes/search', {title: 'Sharecipes', recipes})

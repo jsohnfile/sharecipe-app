@@ -87,6 +87,8 @@ img {
   border: 5px solid gray;
   padding: 25px;
   width: 70%;
+  color: black;
+  text-shadow: 0 3px 3px white;
 }
 nav {
   text-align: right;
@@ -110,15 +112,18 @@ nav {
 .dropdown {
   position: relative;
   display: inline-block;
+  padding-right: 20px;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
+  background-image: linear-gradient(gray, #f1f1f1);
   background-color: #f1f1f1;
   min-width: 110px;
   box-shadow: 0px 8px 16px 0px black;
   z-index: 1;
+  font-size: 14px;
 }
 
 .dropdown-content a {
