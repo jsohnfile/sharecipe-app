@@ -2,7 +2,7 @@
 <h1><%= title %></h1>
 
 <section class="recipe-form">
-  <form action="/recipes" method="POST">
+  <form action="/recipes/<%= recipe._id %>?_method=PUT"  method="POST">
       <label>Title: <input class="recipe-input" type="text" name="title" value="<%= recipe.title %>"><br></label>
       <label>Ingredient(<small>Please Enter Qty/Unit of Measurement ie.</small>): <br>
         <input class="recipe-input" type="text" name="name" placeholder="ie. steak - 8oz">
@@ -11,9 +11,9 @@
       </label>
        <% if(recipe.ingredients.length) { %>
         <% for(let idx = 0 ; idx < recipe.ingredients.length; idx++) { %>
-              <button class="pill" type="submit" formaction="/recipe/<%= recipe._id %>/<%= idx %>?_method=DELETE" method="POST">x <%= recipe.ingredients[idx] %></button>
+              <button class="pill" type="submit" formaction="/recipes/ingredient/<%= recipe._id %>/<%= idx %>?_method=PUT" method="POST">x <%= recipe.ingredients[idx] %></button>
               <input type="hidden" value="<%= recipe.ingredients[idx] %>" name ="ingredients">
-             <% }); %>
+             <% }; %>
         <% } %>
         
         <br><label>Instructions: <br>
@@ -21,7 +21,7 @@
       <label>Image URL: <input class="recipe-input" type="text" name="imgUrl" value="<%= recipe.imgUrl %>"><br></label>
       <label>Reference Link: <input class="recipe-input" type="text" name="refLink" value="<%= recipe.refLink %>"> </label>
       <input type="checkbox" name="share" <%= recipe.share ? 'checked' : ''%>> Share with everyone <br>
-      <input id="add-recipe-btn" type="submit" value="Add Recipe">
+      <input id="add-recipe-btn" type="submit" value="Update Recipe">
       
   </form> 
 </section>

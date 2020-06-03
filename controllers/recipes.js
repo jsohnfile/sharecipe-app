@@ -6,18 +6,31 @@ module.exports = {
     index,
     new: newRecipe,
     create: createRecipe,
+    delete: deleteRecipe,
     edit,
     update,
     myAccount,
     show,
     search,
-    deleteIngredient
+    updateIngredients
 }
 
-function deleteIngredient() {
+function deleteRecipe(req, res) {
+
+}
+
+function updateIngredients(req, res) {
     Recipe.findById(req.params.id, function(err, recipe){
-        recipe.ingredients.splice(idx, 1);
-        res.redirect(`recipes/${recipe._id}`)
+        console.log(req.params.idx, "<---req.params.idx")
+        recipe.ingredients.splice(req.params.idx, 1);
+        recipe.save(function(err){
+            if(err) {
+                console.log("Error");
+            }
+            Recipe.findByIdAndUpdate(req.params.id, req.body, function(err, recipe){
+            res.redirect(`/recipes/${req.params.id}/edit`)
+         })
+        })
     })
 }
 
@@ -53,7 +66,7 @@ function update(req, res) {
     req.body.share = !!req.body.share
     Recipe.findByIdAndUpdate(req.params.id, req.body, function(err, recipe){
         console.log("recipe: ", recipe)
-        res.redirect(`/recipes`)
+        res.redirect(`/recipes/${recipe._id}`)
     })
 }
 

@@ -4,7 +4,12 @@
    <div class= "recipe-detail">
       <h2><%= recipe.title %> Recipe</h2>
       <img src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
-      <p><strong>Ingredients: <%= recipe.ingredients %></strong></p>
+      <p><strong>Ingredients: </strong></p>
+         <ul>
+         <% recipe.ingredients.forEach(function(ingredient) { %>
+            <li> <%= ingredient %> </li>
+         <% }) %>
+         </ul>
       <p ><strong>Instructions: </strong></p>
       <p id="instructions"><%= recipe.instructions %></p>
       <p>Reference link: <a href="<%= recipe.refLink %>">Original Content</a></p>
