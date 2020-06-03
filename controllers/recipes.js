@@ -12,7 +12,22 @@ module.exports = {
     myAccount,
     show,
     search,
-    updateIngredients
+    updateIngredients,
+    addIngredient
+}
+
+function addIngredient(req, res) {
+    Recipe.findById(req.params.id, function(err, recipe){
+        recipe.ingredients.push(req.body.name);
+        recipe.save(function(err){
+            if(err) {
+                console.log("Could not add Ingredient");
+            }
+            Recipe.findByIdAndUpdate(req.params.id, req.body, function(err, recipe){
+                res.redirect(`/recipes/${req.params.id}/edit`)
+             });
+        });
+    });
 }
 
 function deleteRecipe(req, res) {
@@ -58,7 +73,6 @@ function show(req, res) {
 
 function myAccount(req, res) {
     Recipe.find({user: req.user}, function(err, recipes) {
-        console.log(recipes)
         res.render('recipes/myaccount', {title: 'My Account', recipes})
     });
 
@@ -68,7 +82,7 @@ function update(req, res) {
     req.body.share = !!req.body.share
     Recipe.findByIdAndUpdate(req.params.id, req.body, function(err, recipe){
         console.log("recipe: ", recipe)
-        res.redirect(`/recipes/${recipe._id}`)
+        res.redirect('/recipes/myaccount')
     })
 }
 

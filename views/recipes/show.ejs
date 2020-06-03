@@ -23,6 +23,7 @@
             </form>
          <% } %>
          <% if(comments.length){ %>
+            <% comments.sort((a, b) => b.createdAt - a.createdAt); %>
             <% comments.forEach(function(comment) { %>
                <br>
                <div id="comment">
