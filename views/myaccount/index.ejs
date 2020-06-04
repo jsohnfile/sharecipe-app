@@ -1,0 +1,17 @@
+<%- include('../partials/header.ejs') %> 
+
+<p class="heading"> My SHARECIPES</p>
+
+<a href="new"><button>Add a New Recipe</button></a><br><br>
+<section class="list-recipes">
+    <% recipes.forEach(function(recipe) { %>
+         <div class= "recipe">
+            <p class="recipe-header"><strong><%= recipe.title %></strong></p>
+            <img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>"><br>
+            <div class="view-recipe-btn-div"><a href="/myaccount/<%= recipe._id %>"><button class="view-recipe-btn">View Recipe</button></a></div>
+        </div><br><br>
+    
+    <% }) %>
+    </section>
+    
+     <%- include('../partials/footer.ejs') %> 

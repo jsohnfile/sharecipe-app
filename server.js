@@ -18,6 +18,7 @@ var recipesRouter = require('./routes/recipes');
 var ingredientsRouter = require('./routes/ingredients');
 var commentsRouter = require('./routes/comments');
 var profileRouter = require('./routes/profile');
+var myaccountRouter = require('./routes/myaccount');
 var app = express();
 
 // view engine setup
@@ -52,6 +53,7 @@ app.use('/recipes', recipesRouter);
 app.use('/', commentsRouter)
 app.use('/', ingredientsRouter);
 app.use('/profile', profileRouter);
+app.use('/myaccount', myaccountRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
