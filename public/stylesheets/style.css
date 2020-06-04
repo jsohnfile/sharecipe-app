@@ -1,10 +1,8 @@
 * {
   box-sizing: border-box;
-  font-family: Helvetica;
 }
 
 body {
-  color: white;
   margin: 0;
   height: 100vh;
   display: grid;
@@ -17,13 +15,18 @@ body {
 body > nav {
   grid-area: nav;
   background-color: black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px 0 30px;
+  display: grid;
+  grid-template-columns: 1fr 400px 1fr;
+  grid-template-areas: 
+    "left middle right";
+  font-size: 20px;
 }
 a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+  height: 100%
 }
 
 body > main {
@@ -32,15 +35,29 @@ body > main {
   grid-area: main;
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: white;
+  align-items: center;
   padding: 20px;
   overflow-y: scroll;
   text-shadow: 0px 1px 4px black;
 }
+#left-links{
+  grid-area: left;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#middle-logo{
+  grid-area: middle;
+}
+#right-links{
+  grid-area: right;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 .navlink {
   color: white;
-  width: 100px;
 }
 #search-bar {
   height: 30px;
@@ -51,12 +68,19 @@ body > main {
   width: 70px;
   margin-left: 5px;
 }
-
+.heading{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: white;
+  font-size: 80px;
+  text-shadow: -1px 0px 6px black;
+}
+h3{
+  color: white;
+  font-size: 30px;
+  text-shadow: -1px 0px 6px black;
+}
 #instructions {
   white-space: pre-wrap;
-}
-.navlink {
-  width: 100px;
 }
 #nav-logo {
   width: 400px;
@@ -70,6 +94,11 @@ img {
   box-shadow: 3px 4px 5px gray;
   margin-right: 5px;
 }
+#profile-pic-nav {
+  width: 25px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
 #username-comment {
   text-shadow: 3px 4px 5px gray;
 }
@@ -78,7 +107,6 @@ img {
   align-items: center;
   color: black;
 }
-
 .recipe {
   background: url(https://i.imgur.com/RcNpKrD.jpg) no-repeat center center fixed;
   background-size: cover;
@@ -89,11 +117,8 @@ img {
   width: 70%;
   color: black;
   text-shadow: 0 3px 3px white;
+  font-family: 'Libre Baskerville', serif;
 }
-nav {
-  text-align: right;
-}
-
 #status-message {
   color: red;
   font-style: italic;
@@ -176,6 +201,7 @@ nav {
   border-radius: 20px;
   box-shadow: 5px 5px 5px black;
   border: 5px solid black;
+  text-shadow: 0 3px 3px white;
   padding: 25px;
   width: 600px;
 }
@@ -190,9 +216,10 @@ nav {
   padding: 15px;
   box-shadow: 5px 5px 5px gray;
 }
-#pill {
-  border-radius: 16px;
-  color: white;
+.pill {
+  border-radius: 75px;
+  padding: 5px;
+  color: black;
 }
 .recipe-input {
   width: 100%;

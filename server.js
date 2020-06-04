@@ -17,6 +17,7 @@ var usersRouter = require('./routes/users');
 var recipesRouter = require('./routes/recipes');
 var ingredientsRouter = require('./routes/ingredients');
 var commentsRouter = require('./routes/comments');
+var profileRouter = require('./routes/profile');
 var app = express();
 
 // view engine setup
@@ -50,6 +51,7 @@ app.use('/', usersRouter);
 app.use('/recipes', recipesRouter);
 app.use('/', commentsRouter)
 app.use('/', ingredientsRouter);
+app.use('/profile', profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
