@@ -7,8 +7,8 @@
     <% recipes.forEach(function(recipe) { %>
         <div class= "recipe">
             <p>Status: <span id="status-message"><%= recipe.share ? 'Shared' : 'Private' %></span></p>
-            <h2><%= recipe.title %></h2>
-            <img src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
+            <p class="recipe-header"><strong><%= recipe.title %></strong></p>
+            <img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
             <p><strong>Ingredients:</strong></p>
                 <ul>
                 <% recipe.ingredients.forEach(function(ingredient) { %>

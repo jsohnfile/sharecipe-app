@@ -1,9 +1,9 @@
 <%- include('../partials/header.ejs') %> 
 
-<h1><%= recipe.title %></h1><br>
+<p class="heading"><%= recipe.title %></p><br>
    <div class= "recipe-detail">
-      <h2><%= recipe.title %> Recipe</h2>
-      <img src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
+      <p class="recipe-header"><strong><%= recipe.title %></strong></p>
+      <img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
       <p><strong>Ingredients: </strong></p>
          <ul>
          <% recipe.ingredients.forEach(function(ingredient) { %>
