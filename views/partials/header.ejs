@@ -12,7 +12,7 @@
   <nav>
     <div id="left-links">
       <a class="navlink" href="/recipes">View Recipes</a>
-      <a class="navlink" href="/recipes/new">Add A Recipe</a>
+      <a class="navlink" href="/myaccount/new">Add A Recipe</a>
     </div>
     <div id="middle-logo">
       <a href="/"><img id="nav-logo" src="https://i.imgur.com/OuMjD10.png"></a>
@@ -20,7 +20,7 @@
     <div id="right-links">
       <a class="navlink" href="/">Search</a>
       <% if (user) { %>
-      <div class="dropdown">
+        <div class="dropdown">
           <button class="dropbtn"><img id ="profile-pic-nav" src="<%= user.avatar %>">&nbsp; <%= user.username %></button>
           <div class="dropdown-content">
             <a href="/myaccount">My Account</a>

@@ -10,7 +10,7 @@ function deleteIngredient(req, res) {
     Ingredient.findByIdAndDelete(req.params.id, function(err){
         Ingredient.create(req.body, function(err, ingredient){
             Ingredient.find({}, function(err, ingredients){
-                res.render("recipes/new", {title: 'Add A Recipe', ingredient, ingredients});
+                res.render("myaccount/new", {title: 'Add A Recipe', ingredient, ingredients});
             });
         })
     });
@@ -20,7 +20,7 @@ function createIngredient(req, res) {
     req.body.share = !!req.body.share
     Ingredient.create(req.body, function(err, ingredient){
         Ingredient.find({}, function(err, ingredients){
-            res.render("recipes/new", {title: 'Add A Recipe', ingredient, ingredients});
+            res.render("myaccount/new", {title: 'Add A Recipe', ingredient, ingredients});
         });
     });
 }

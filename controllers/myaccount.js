@@ -1,4 +1,5 @@
 const Recipe = require('../models/recipe');
+const Ingredient = require('../models/ingredient')
 
 module.exports = {
     index,
@@ -56,20 +57,21 @@ function update(req, res) {
 
 function index(req, res) {
     Recipe.find({user: req.user}, function(err, recipes) {
-        res.render('myaccount', {title: 'My Account', recipes})
+        res.render('myaccount', {title: 'My Sharecipes', recipes})
     });
 
 }
 
 function edit(req, res) {
     Recipe.findById(req.params.id, function(err, recipe) {
-        res.render('myaccount/edit', {title: recipe.title, recipe})
+        console.log(recipe)
+        res.render('myaccount/edit', {title: 'Edit Recipe', recipe})
      })
 }
 
 function show(req, res) {
     Recipe.findById(req.params.id, function(err,recipe){
-        res.render('myaccount/show', {title: recipe.title, recipe})
+        res.render('myaccount/show', {title: 'Recipe Details', recipe})
     })
 }
 

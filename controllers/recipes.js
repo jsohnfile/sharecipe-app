@@ -4,16 +4,8 @@ const Ingredient = require('../models/ingredient');
 
 module.exports = {
     index,
-    new: newRecipe,
-    create: createRecipe,
-    delete: deleteRecipe,
-    edit,
-    update,
-    myAccount,
     show,
     search,
-    updateIngredients,
-    addIngredient
 }
 
 function search(req, res) {

@@ -27,14 +27,14 @@
             <% comments.forEach(function(comment) { %>
                <br>
                <div id="comment">
-                  <div class="comment-header"><small><img class="profile-pic" src="<%= comment.user.avatar %>"> <%= comment.user.username %> Posted on <%= comment.createdAt.toLocaleDateString() %></small> </div>
-                  <div id="comment-content"><%= comment.content %></div>
+                  <p class="comment-header"><img class="profile-pic" src="<%= comment.user.avatar %>"> <small><%= comment.user.username %> Posted on <%= comment.createdAt.toLocaleDateString() %></small> </p>
+                  <div class="comment-content"><%= comment.content %></div>
                </div>
             <% }) %>
          <% } else { %>
          <h5>Be the first to comment!</h5>
          <% } %>
-   </section>
-</div>
+      </section>
+   </div>
 
  <%- include('../partials/footer.ejs') %> 

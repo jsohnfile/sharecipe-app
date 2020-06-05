@@ -10,7 +10,6 @@ body {
   grid-template-areas: 
     "nav"
     "main"
-  
 }
 
 body > nav {
@@ -22,6 +21,7 @@ body > nav {
     "left middle right";
   font-size: 20px;
 }
+
 .navlink {
   display: flex;
   align-items: center;
@@ -43,69 +43,103 @@ body > main {
   width: 100%;
 }
 
-#left-links{
+#left-links {
   grid-area: left;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-#middle-logo{
+
+#middle-logo {
   grid-area: middle;
 }
-#right-links{
+
+#right-links {
   grid-area: right;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
+#search-container {
+  width: 363px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#search-label {
+  height: 45px;
+}
+
 #search-bar {
-  height: 30px;
-  width: 350px;
+  height: 100%;
+  font-size: 18px;
+  width: 285px;
+  border-radius: 60px 0 0 60px;
+  border-top: 2px solid black;
+  border-right: none;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
 #search-button {
-  height: 30px;
+  height: 100%;
   width: 70px;
-  margin-left: 5px;
+  border-radius: 0 60px 60px 0;
+  border: 2px solid black;
+  padding: 4px 3px 5px 0;
 }
-.heading{
+
+.heading {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   color: white;
-  font-size: 80px;
+  font-size: 60px;
   text-shadow: -1px 0px 6px black;
 }
-h3{
+
+h3 {
   color: white;
   font-size: 30px;
   text-shadow: -1px 0px 6px black;
 }
+
 #instructions {
   white-space: pre-wrap;
 }
+
 #nav-logo {
   width: 400px;
 }
+
 img {
   width: 100%;
 }
+
 .profile-pic {
   width: 25px;
   border-radius: 50%;
   box-shadow: 3px 4px 5px gray;
   margin-right: 5px;
 }
+
 #profile-pic-nav {
   width: 25px;
   border-radius: 50%;
   margin-right: 5px;
 }
+
 #username-comment {
   text-shadow: 3px 4px 5px gray;
 }
+
 .comment-header {
   display: flex;
   align-items: center;
   color: black;
 }
+
 .recipe {
   background: url(https://i.imgur.com/RcNpKrD.jpg) no-repeat center center;
   background-size: cover;
@@ -120,6 +154,7 @@ img {
   padding: 20px;
   margin: 20px;
 }
+
 .recipe-detail {
   background: url(https://i.imgur.com/RcNpKrD.jpg) no-repeat center center;
   background-size: cover;
@@ -132,17 +167,18 @@ img {
   text-shadow: 0 3px 3px white;
   font-family: 'Libre Baskerville', serif;
 }
+
 #status-message {
   color: red;
   font-style: italic;
 }
+
 /* Dropdown Button */
 .dropbtn {
   display: flex;
   align-items: center;
   background-color: transparent;
   color: white;
-  
   font-size: 14px;
   border: none;
 }
@@ -177,7 +213,6 @@ img {
 
 .dropdown:hover .dropbtn {background-color: transparent;}
 
-
 #comment {
   border-radius: 20px;
   box-shadow: 5px 5px 5px gray;
@@ -188,6 +223,7 @@ img {
   text-shadow: 0 3px 3px white;
   background-color: white;
 }
+
 #comment-box {
   border-radius: 20px;
   box-shadow: 5px 5px 5px gray;
@@ -207,10 +243,12 @@ img {
   padding: 25px;
   width: 600px;
 }
+
 #instructions-text {
   width: 100%;
   height: 300px;
 }
+
 #comments-text {
   width: 100%;
   height: 50px;
@@ -218,14 +256,17 @@ img {
   padding: 15px;
   box-shadow: 5px 5px 5px gray;
 }
+
 .pill {
   border-radius: 75px;
   padding: 5px;
   color: black;
 }
+
 .recipe-input {
   width: 100%;
 }
+
 .list-recipes {
   display: flex;
   flex-wrap: wrap;
@@ -233,25 +274,29 @@ img {
   width: 100%;
   height: 100%;
 }
-.recipe-header{
-  font-size: 1.2em;
-  height: 10%;
+
+.recipe-header {
+  font-size: 30px;
 }
-.view-recipe-btn-div{
+
+.view-recipe-btn-div {
   display: flex;
   justify-content: center;
   padding: 10px;
 }
-.view-recipe-btn{
+
+.view-recipe-btn {
   height: 35px;
   border-radius: 20px;
   padding: 8px;
   box-shadow: 0 3px 3px gray;
 }
-.image{
+
+.image {
   border: 3px solid white;
   box-shadow: 0 3px 3px gray
 }
+
 .navlink:visited {
   color: white;
 }

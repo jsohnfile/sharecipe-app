@@ -3,7 +3,7 @@
 <p class="heading">SHARECIPES</p><br>
 <section class="list-recipes">
 <% recipes.forEach(function(recipe) { %>
-     <div class= "recipe">
+    <div class= "recipe">
         <p class="recipe-header"><strong><%= recipe.title %></strong></p>
         <img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>"><br>
         <div class="view-recipe-btn-div"><a href="/recipes/<%= recipe._id %>"><button class="view-recipe-btn">View Recipe</button></a></div>
