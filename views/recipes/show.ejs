@@ -2,24 +2,30 @@
 
 <p class="heading"><%= recipe.title %></p><br>
    <div class= "recipe-detail">
-      <p class="recipe-header"><strong><%= recipe.title %></strong></p>
+
+      <button>Favorite</button>
+
       <img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
-      <p><strong>Ingredients: </strong></p>
-         <ul>
-         <% recipe.ingredients.forEach(function(ingredient) { %>
-            <li> <%= ingredient %> </li>
-         <% }) %>
-         </ul>
-      <p ><strong>Instructions: </strong></p>
-      <p id="instructions"><%= recipe.instructions %></p>
-      <p>Reference link: <a href="<%= recipe.refLink %>">Original Content</a></p>
-      <p>Shared by: <%= recipe.user.username %></p>
+      <section class="full-instructions">
+         <p><strong>Ingredients: </strong></p>
+            <ul>
+            <% recipe.ingredients.forEach(function(ingredient) { %>
+               <li> <%= ingredient %> </li>
+            <% }) %>
+            </ul>
+         <p ><strong>Instructions: </strong></p>
+         <p id="instructions"><%= recipe.instructions %></p>
+         <p>Reference link: <a class="oc-link" href="<%= recipe.refLink %>">Original Content</a></p>
+         <p>Shared by: <%= recipe.user.username %></p>
+      </section>
       <section id="comment-box">
          <% if(user) { %>
             <form id="add-comment-form" method="POST" action="/recipes/<%= recipe._id %>/comments">
                <p class="comment-header"><img class="profile-pic" src="<%= user.avatar %>"><small id="username-comment"> <%= user.username %> </small></p>
-               <textarea id="comments-text" name="content" placeholder="Leave A Comment.."></textarea>
-               <input type="submit" value="Add Comment">
+               <div id="add-comment-input">
+                  <textarea id="comments-text" name="content" placeholder="Leave A Comment.." rows="1" cols="50"></textarea>
+                  <button id="add-comment-btn" type="submit" >Add Comment</button>
+               </div>
             </form>
          <% } %>
          <% if(comments.length){ %>
@@ -27,7 +33,7 @@
             <% comments.forEach(function(comment) { %>
                <br>
                <div id="comment">
-                  <p class="comment-header"><img class="profile-pic" src="<%= comment.user.avatar %>"> <small><%= comment.user.username %> Posted on <%= comment.createdAt.toLocaleDateString() %></small> </p>
+                  <p class="comment-header"><img class="profile-pic" src="<%= comment.user.avatar %>"><small><%= comment.user.username %>&nbsp;&nbsp;<em>posted on <%= comment.createdAt.toLocaleDateString() %></em></small> </p>
                   <div class="comment-content"><%= comment.content %></div>
                </div>
             <% }) %>

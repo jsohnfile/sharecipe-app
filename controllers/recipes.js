@@ -9,7 +9,7 @@ module.exports = {
 }
 
 function search(req, res) {
-    Recipe.find({ "ingredients": { "$regex": req.body.search, "$options": "i" } , share: true}, function(err, recipes){
+    Recipe.find({ "ingredients": { "$regex": req.body.search, "$options": "i" }, share: true}, function(err, recipes){
         res.render('recipes/search', {title: 'Sharecipes', recipes})
     })
 }

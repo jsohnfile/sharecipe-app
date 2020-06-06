@@ -1,9 +1,9 @@
 <%- include('../partials/header.ejs') %> 
-<h1><%= title %></h1>
+<p class="heading"><%= title %></p>
 
 <section class="recipe-form">
   <form action="/myaccount" method="POST">
-      <label>Title: <input class="recipe-input" type="text" name="title" value="<%= ingredient ? ingredient.title : "" %>"><br></label>
+      <label>Title: <input class="recipe-input" type="text" name="title" value="<%= ingredient ? ingredient.title : "" %>" maxlength="54"><br></label>
       <label>Ingredient(<small>Please Enter Qty/Unit of Measurement ie.</small>): <br>
         <input class="recipe-input" type="text" name="name" placeholder="ie. steak - 8oz">
           <button id="add-ingredient"type="submit" formaction="/ingredients" method="POST">Add</button><br>
