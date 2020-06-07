@@ -12,28 +12,38 @@
 
   <nav>
     <div id="left-links">
-      <a style=<%= user? "visibility:visible" : "visibility:hidden" %> class="navlink" href="/myaccount/new">Add A Recipe</a>
-      <a class="navlink" href="/recipes">View Recipes</a>
+      <a id="mobile-logo" href="/"><img id="nav-small-logo" src="https://i.imgur.com/KmDw3I7.png"></a>
+      <a id="add-recipe-link" style=<%= user? "visibility:visible" : "visibility:hidden" %> class="navlink" href="/myaccount/new">Add A Recipe</a>
+      <a id="view-recipe-link" class="navlink" href="/recipes">View Recipes</a>
     </div>
     <div id="middle-logo">
       <a href="/"><img id="nav-logo" src="https://i.imgur.com/OuMjD10.png"></a>
     </div>
+
+
     <div id="right-links">
-      <a class="navlink" href="/">Search</a>
+      <a id="search-link" class="navlink" href="/">Search</a>
       <% if (user) { %>
         <div class="dropdown">
           <button class="dropbtn"><img id ="profile-pic-nav" src="<%= user.avatar %>">&nbsp; <%= user.username %></button>
           <div class="dropdown-content">
+            <a href="/recipes">View Recipes</a>
+            <a href="/">Search</a>
             <a href="/myaccount">My Account</a>
             <a href="/myaccount/myfavorites">My Favorites</a>
             <a href="/myaccount/new">Add A Recipe</a>
             <a href="/logout">LOGOUT</a>
           </div>
-      </div>
-          
-          
+    </div>      
       <% } else { %>
-      <a class="navlink" href="/auth/google">&#128273; Login</a>
+      <a id="login-link"class="navlink" href="/auth/google">&#128273; Login</a>
+      <div id="login-dropdown" class="dropdown">
+        <button id="menu-btn"class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href="/recipes">View Recipes</a>
+          <a href="/">Search</a>
+          <a href="/auth/google">Login</a>
+        </div>
       <% } %>
     </div>
 
