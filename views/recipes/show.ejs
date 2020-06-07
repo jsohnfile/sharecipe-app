@@ -2,8 +2,13 @@
 
 <p class="heading"><%= recipe.title %></p><br>
    <div class= "recipe-detail">
-
-      <button>Favorite</button>
+      <%if(user) { %>
+         <form action="/users/<%= recipe._id %>?_method=PUT" method="POST">
+            <input type="hidden" value="<%= recipe._id %>">
+            <button id="favorite-btn" style=<%= user.favorites.includes(recipe._id)? 'background-color:yellow' : '' %>
+            type="submit"><%= user.favorites.includes(recipe._id)? 'Remove From Favorites' : 'Add To Favorites' %> </button>
+         </form>
+      <% } %>
 
       <img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
       <section class="full-instructions">

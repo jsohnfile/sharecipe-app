@@ -19,7 +19,7 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-router.put('/user', function(req, res){
+router.put('/users', function(req, res){
   User.find({username: req.body.username}, function(err, checkusername){
     if(checkusername.length){
       res.render('profile', {message: "Username exists. Please Try Again", title: "Create a Username"});
@@ -33,13 +33,31 @@ router.put('/user', function(req, res){
             console.log('something went wrong')
           }
           console.log("user after add:", user)
-          res.redirect('/recipes/myaccount')
+          res.redirect('/myaccount')
         })
       })
     }
 
   })
 })
+
+router.put('/users/:id', function(req,res){
+  console.log(req.user, "<--req.user")
+  console.log(req.user._id,"req.user._id")
+  User.findById(req.user._id, function(err, user){
+    let value = user.favorites.includes(req.params.id)
+    if(value) {
+      let idx = user.favorites.indexOf(req.params.id);
+      user.favorites.splice(idx, 1);
+    }else {
+      user.favorites.push(req.params.id);
+    }
+    user.save(function(err){
+      console.log(user, "<----user")
+      res.redirect(`/recipes/${req.params.id}`)
+    });
+  });
+});
 
 
 module.exports = router;

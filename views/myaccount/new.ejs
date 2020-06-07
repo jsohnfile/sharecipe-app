@@ -4,7 +4,7 @@
 <section class="recipe-form">
   <form action="/myaccount" method="POST">
       <label>Title: <input class="recipe-input" type="text" name="title" value="<%= ingredient ? ingredient.title : "" %>" maxlength="54"><br></label>
-      <label>Ingredient(<small>Please Enter Qty/Unit of Measurement ie.</small>): <br>
+      <br><label>Ingredient(<small>Please Enter Qty/Unit of Measurement ie.</small>): <br>
         <input class="recipe-input" type="text" name="name" placeholder="ie. steak - 8oz">
           <button id="add-ingredient"type="submit" formaction="/ingredients" method="POST">Add</button><br>
           
@@ -21,9 +21,9 @@
       Serving Size: 4
       Preparation time: 45 minutes
       Step 1: Wash your chicken"><%= ingredient ? ingredient.instructions: "" %></textarea><br></label>
-      <label>Image URL: <input class="recipe-input" type="text" name="imgUrl" value="<%= ingredient ? ingredient.imgUrl: "" %>"><br></label>
-      <label>Reference Link: <input class="recipe-input" type="text" name="refLink" value="<%= ingredient ? ingredient.refLink: "" %>"> </label>
-      <input type="checkbox" name="share" <%=ingredient ? (ingredient.share ? 'checked' : '') : "" %>> Share with everyone <br>
+      <br><label>Image URL: <input class="recipe-input" type="text" name="imgUrl" value="<%= ingredient ? ingredient.imgUrl: "" %>"></label>
+      <br><label>Reference Link: <input class="recipe-input" type="text" name="refLink" value="<%= ingredient ? ingredient.refLink: "" %>"> </label>
+      <input id="checkbox" type="checkbox" name="share" <%=ingredient ? (ingredient.share ? 'checked' : '') : "" %>> Share with everyone <br>
       <input id="add-recipe-btn" type="submit" value="Add Recipe">
       
   </form> 

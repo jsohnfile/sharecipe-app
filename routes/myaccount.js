@@ -5,6 +5,7 @@ const myaccountCtrl = require('../controllers/myaccount');
 router.get('/', hasUsername, isLoggedIn, myaccountCtrl.index)
 router.get('/new', isLoggedIn, myaccountCtrl.new);
 router.put('/', isLoggedIn, myaccountCtrl.edit)
+router.get('/myfavorites', isLoggedIn, myaccountCtrl.showFavorites)
 router.get('/:id', isLoggedIn, myaccountCtrl.show)
 router.delete('/:id', isLoggedIn, myaccountCtrl.delete)
 router.post('/', isLoggedIn, myaccountCtrl.create);

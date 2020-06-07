@@ -15,9 +15,7 @@ function search(req, res) {
 }
 
 function show(req, res) {
-    Recipe.findById(req.params.id)
-    .populate('user')
-    .exec(function(err, recipe){
+    Recipe.findById(req.params.id).populate('user').exec(function(err, recipe){
         Comment.find({recipe: recipe._id}).populate('user')
         .exec(function(err, comments){
             res.render('recipes/show', {title: recipe.title, recipe, comments})

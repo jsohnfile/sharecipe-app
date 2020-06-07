@@ -1,6 +1,13 @@
 * {
   box-sizing: border-box;
+  cursor: url("/images/frypan.png"), auto;
+  font-family: 'Acme', sans-serif;
 }
+
+*:focus {
+  outline: none;
+}
+
 body {
   margin: 0;
   width: 100vw;
@@ -8,8 +15,8 @@ body {
   display: grid;
   grid-template-rows: 100px 1fr;
   grid-template-areas: 
-    "nav"
-    "main";
+  "nav"
+  "main";
 }
 
 body > nav {
@@ -20,6 +27,7 @@ body > nav {
   grid-template-areas: 
     "left middle right";
   font-size: 20px;
+  font-family: 'Acme', sans-serif;
 }
 
 .navlink {
@@ -28,6 +36,14 @@ body > nav {
   justify-content: center;
   text-decoration: none;
   height: 100%;
+  width: 110px;
+}
+
+.navlink:hover {
+  text-shadow: 3px 5px 12px lightgrey;
+  font-weight: bold;
+  color: gray;
+  font-size: 21px;
 }
 
 body > main {
@@ -46,7 +62,7 @@ body > main {
 #left-links {
   grid-area: left;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -107,6 +123,12 @@ body > main {
   text-shadow: 0 3px 3px black;
 }
 
+#search-button:hover {
+  background-color: rgba(255,255,255,0.8);
+  color: black;
+  text-shadow: 0 3px 3px white;
+}
+
 .heading {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   color: white;
@@ -146,7 +168,7 @@ img {
 }
 
 #profile-pic-nav {
-  width: 25px;
+  width: 30px;
   border-radius: 50%;
   margin-right: 5px;
 }
@@ -163,32 +185,19 @@ img {
   text-shadow: 0 3px 3px 3px;
 }
 
-.recipe {
-  background: url(https://i.imgur.com/RcNpKrD.jpg) no-repeat center center;
-  background-size: cover;
-  border-radius: 20px;
-  box-shadow: 5px 5px 5px gray;
-  border: 5px solid white;
-  color: black;
-  text-shadow: 0 3px 3px white;
-  font-family: 'Libre Baskerville', serif;
-  width: 360px;
-  height: 430px;
-  padding: 10px 20px 20px 20px;
-  margin: 20px;
-}
 
 .recipe-detail {
   background: url(https://i.imgur.com/RcNpKrD.jpg) no-repeat center center;
   background-size: cover;
   border-radius: 20px;
-  box-shadow: 5px 5px 5px gray;
-  border: 5px solid white;
+  box-shadow: 5px 5px 5px black;
+  border: 4px solid black;
   padding: 30px;
   width: 60%;
   color: black;
   text-shadow: 0 3px 3px white;
   font-family: 'Libre Baskerville', serif;
+  font-size: 20px;
 }
 
 #status-message {
@@ -202,7 +211,7 @@ img {
   align-items: center;
   background-color: transparent;
   color: white;
-  font-size: 14px;
+  font-size: 18px;
   border: none;
 }
 
@@ -215,16 +224,17 @@ img {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-image: linear-gradient(gray, #f1f1f1);
+  background-image: linear-gradient(rgba(0,0,0,1), lightgrey);
   background-color: #f1f1f1;
-  min-width: 110px;
+  min-width: 150px;
   box-shadow: 0px 8px 16px 0px black;
   z-index: 1;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .dropdown-content a {
-  color: black;
+  color: white;
+  text-shadow: 0 3px 3px black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -261,16 +271,69 @@ img {
   background: url(https://i.imgur.com/RcNpKrD.jpg) no-repeat center center fixed;
   background-size: cover;
   border-radius: 20px;
-  box-shadow: 5px 5px 5px gray;
-  border: 5px solid white;
+  box-shadow: 5px 5px 5px black;
+  border: 5px solid black;
   text-shadow: 0 3px 3px white;
   padding: 25px;
   width: 600px;
+  font-size: 25px;
+  color: white;
+  text-shadow: 0 3px 3px black;
+}
+
+#add-ingredient {
+  width: 80px;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 60px;
+  border: 2px solid white;
+  box-shadow: 0 3px 3px black;
+  font-size: 16px;
+  background-color: rgba(78, 64, 64, 0.8);
+  color: white;
+  text-shadow: 0 3px 3px black;
+}
+
+#add-recipe-btn {
+  height: 40px;
+  width: 160px;
+  padding: 10px;
+  border-radius: 60px;
+  border: 2px solid white;
+  box-shadow: 0 3px 3px black;
+  font-size: 16px;
+  background-color: rgba(78, 64, 64, 0.8);
+  color: white;
+  text-shadow: 0 3px 3px black;
+}
+  
+#add-recipe-btn:hover {
+  background-color: rgba(255,255,255,0.8);
+  color: black;
+  text-shadow: 0 3px 3px white;
+}
+
+#checkbox {
+  margin: 40px 0;
 }
 
 #instructions-text {
   width: 100%;
   height: 300px;
+  background-color: rgba(78, 64, 64, 0.8);
+  color: white;
+  text-shadow: 0 3px 3px black;
+  box-shadow: 0 3px 3px black;
+  border: 3px solid black;
+  font-size: 18px;
+}
+
+#instructions-text::placeholder {
+  color: white;
+  text-shadow: 0 3px 3px black;
+  font-style: italic;
+  opacity: 0.7;
+  font-size: 18px;
 }
 
 #comments-text {
@@ -285,8 +348,15 @@ img {
   box-shadow: 0 5px 2px black;
   background-color: rgba(95, 89, 89, 0.7);
   color: white;
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+#comments-text::placeholder {
+  color: white;
   font-style: italic;
   opacity: 0.7;
+  font-size: 18px;
 }
 
 #add-comment-btn {
@@ -300,14 +370,14 @@ img {
   border-left: none;
 }
 
-#add-comment-input{
-  display: flex;
+#add-comment-btn:hover {
+  background-color: rgba(97, 91, 91, 0.9);
+  color: white;
+  text-shadow: 0 3px 3px black;
 }
 
-#comments-text::placeholder {
-  color: white;
-  font-style: italic;
-  opacity: 0.7;
+#add-comment-input{
+  display: flex;
 }
 
 .pill {
@@ -318,6 +388,19 @@ img {
 
 .recipe-input {
   width: 100%;
+  height: 30px;
+  background-color: rgba(78, 64, 64, 0.8);
+  color: white;
+  text-shadow: 0 3px 3px black;
+  box-shadow: 5px 5px 3px black;
+  border: 2px solid black;
+  font-size: 18px;
+}
+.recipe-input::placeholder{
+  color: white;
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 18px;
 }
 
 .list-recipes {
@@ -328,11 +411,31 @@ img {
   height: 100%;
 }
 
+.recipe {
+  background: url(https://i.imgur.com/RcNpKrD.jpg) no-repeat center center;
+  background-size: cover;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px black;
+  border: 4px solid black;
+  color: black;
+  text-shadow: 0 3px 3px white;
+  font-family: 'Libre Baskerville', serif;
+  width: 365px;
+  height: 430px;
+  padding: 10px;
+  margin: 20px;
+}
+
 .recipe-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size: 20px;
-  height: 75px;
-  text-shadow: 0 3px 3px gray;
+  font-size: 26px;
+  height: 100px;
+  text-shadow: 0 3px 3px black;
+  margin: 0;
+  color: white;
 }
 
 .view-recipe-btn-div {
@@ -345,15 +448,17 @@ img {
   height: 35px;
   border-radius: 20px;
   padding: 8px;
-  box-shadow: 0 3px 3px gray;
-  border: 2px solid black;
+  box-shadow: 0 3px 3px black;
+  border: 2px solid white;
+  background-color: rgba(78, 64, 64, 0.8);
+  color: white;
+  text-shadow: 0 3px 3px black;
 }
 
 .view-recipe-btn:hover {
-  background-color: rgba(0,0,0,0.8);
-  color: white;
-  text-shadow: 0 3px 3px gray;
-
+  background-color: rgba(255,255,255,0.8);
+  color: black;
+  text-shadow: 0 3px 3px white;
 }
 
 .image {
@@ -366,8 +471,13 @@ img {
   color: white;
 }
 
+#myaccount-btns {
+  display: flex;
+}
+
 #add-recipe-btn {
   height: 40px;
+  width: 160px;
   padding: 10px;
   border-radius: 60px;
   border: 2px solid white;
@@ -376,6 +486,7 @@ img {
   background-color: rgba(78, 64, 64, 0.8);
   color: white;
   text-shadow: 0 3px 3px black;
+  margin: 0 20px 40px 20px;
 }
 
 #add-recipe-btn:hover {
@@ -440,14 +551,34 @@ textarea {
   border-radius: 0 60px 60px 0;
   border: 2px solid white;
   box-shadow: 0 3px 3px black;
-  padding: 2px 0 0 0;
+  padding: 4px 0 0 0;
   background-color: rgba(97, 91, 91, 0.9);
   color: white;
   text-shadow: 0 3px 3px black;
 }
 
+#username-button:hover {
+  background-color: rgba(255,255,255,0.8);
+  color: black;
+  text-shadow: 0 3px 3px white;
+}
 #status {
   margin: 50px 0;
   font-size: 20px;
 }
 
+#favorite-btn {
+  height: 50px;
+  margin: 30px;
+  border-radius: 60px;
+}
+
+#favorite-btn {
+  box-shadow: 0 3px 3px black;
+  border: 2px solid white;
+  background-color: rgba(78, 64, 64, 0.8);
+  color: white;
+  text-shadow: 0 3px 3px black;
+  font-size: 18px;
+  padding: 10px;
+}

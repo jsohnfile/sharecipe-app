@@ -1,5 +1,6 @@
 const Recipe = require('../models/recipe');
 const Ingredient = require('../models/ingredient')
+const User = require('../models/user')
 
 module.exports = {
     index,
@@ -10,7 +11,14 @@ module.exports = {
     update,
     delete: deleteRecipe,
     updateIngredients,
-    addIngredient
+    addIngredient,
+    showFavorites
+}
+
+function showFavorites(req, res) {
+    User.findById(req.user.id).populate('favorites').exec(function(err,user){
+        res.render('myaccount/myfavorites', {title: 'My Favorites', user})
+    })
 }
 
 function addIngredient(req, res) {

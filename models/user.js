@@ -5,7 +5,11 @@ const userSchema = new Schema({
     email: String,
     avatar: String,
     googleId: String,
-    username: String
+    username: String,
+    favorites: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Recipe'
+    }]
 },
 {
     timestamps: true
