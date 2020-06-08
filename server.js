@@ -16,7 +16,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var recipesRouter = require('./routes/recipes');
 var ingredientsRouter = require('./routes/ingredients');
-var commentsRouter = require('./routes/comments');
 var profileRouter = require('./routes/profile');
 var myaccountRouter = require('./routes/myaccount');
 var app = express();
@@ -50,7 +49,6 @@ app.use(function(req, res, next) {
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/recipes', recipesRouter);
-app.use('/', commentsRouter)
 app.use('/', ingredientsRouter);
 app.use('/profile', profileRouter);
 app.use('/myaccount', myaccountRouter);

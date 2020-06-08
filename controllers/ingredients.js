@@ -6,9 +6,11 @@ module.exports ={
 }
 
 function deleteIngredient(req, res) {
-    Ingredient.findByIdAndDelete(req.params.id, function(err){
-        Ingredient.create(req.body, function(err){
+    Ingredient.create(req.body, function(err, ingredient){
+        Ingredient.findByIdAndDelete(req.params.id, function(err){
+            console.log(ingredient, "ingredient")
             Ingredient.find({}, function(err, ingredients){
+                console.log(ingredients)
                 let ingredient = ingredients[ingredients.length - 1]
                 res.render("myaccount/new", {title: 'Add A Recipe', ingredient, ingredients});
             });
