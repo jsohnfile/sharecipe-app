@@ -34,12 +34,14 @@
             <% comments.sort((a, b) => b.createdAt - a.createdAt); %>
             <% comments.forEach(function(comment) { %>
                <br><div id="comment">
-                  <% if (comment.user.name === user.name) { %>
-                     <form action="/recipes/<%= recipe._id %>/comments/<%=comment._id%>?_method=DELETE" method="POST">
-                        <div id="comment-delete-btn">
-                           <button id="x-btn" type="submit">X</button>
-                        </div>
-                     </form>
+                  <% if (user) { %>
+                     <% if (comment.user.name === user.name) { %>
+                        <form action="/recipes/<%= recipe._id %>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                           <div id="comment-delete-btn">
+                              <button id="x-btn" type="submit">X</button>
+                           </div>
+                        </form>
+                     <% } %>
                   <% } %>
                   <p class="comment-header"><img class="profile-pic" src="<%= comment.user.avatar %>"><small><%= comment.user.username %>&nbsp;&nbsp;<em>posted on <%= comment.createdAt.toLocaleDateString() %></em></small> </p>
                   <div class="comment-content"><%= comment.content %></div>
