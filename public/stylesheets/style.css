@@ -275,6 +275,12 @@ img {
 
 .dropdown:hover .dropbtn {background-color: transparent;}
 
+#comment-delete-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
 #comment {
   border-radius: 20px;
   box-shadow: 5px 5px 5px black;

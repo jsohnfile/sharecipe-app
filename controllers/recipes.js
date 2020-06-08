@@ -4,7 +4,28 @@ const Comment = require('../models/comment');
 module.exports = {
     index,
     show,
-    search
+    search,
+    create: createComment,
+    delete: deleteComment
+}
+
+function deleteComment(req, res){
+    Comment.findByIdAndDelete(req.params.cid, function(err){
+        Recipe.findById(req.params.id, function(err, recipe){
+            Comment.find({}, function(err,comments) {})
+            res.render(`/recipes/${recipe._id}`);
+        });
+    });
+}
+
+function createComment(req, res) {
+    req.body.user = req.user.id;
+    req.body.recipe = req.params.id
+    Recipe.findById(req.params.id, function(err, recipe){
+        Comment.create(req.body, function(err, comment){
+            res.redirect(`/recipes/${recipe._id}`);
+        });
+    });
 }
 
 function search(req, res) {
