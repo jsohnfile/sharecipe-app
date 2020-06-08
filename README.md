@@ -44,7 +44,7 @@ Sharecipe is an app that allows users to share recipes with one another within t
 ## Getting Started
 
 [App Link](https://sharecipe-recipeshare.herokuapp.com/)<br>
-[Trello Planning Board](https://trello.com/b/cQZP8oil/sharecipe-app
+[Trello Planning Board](https://trello.com/b/cQZP8oil/sharecipe-app)
 
 ## Next Steps
 
