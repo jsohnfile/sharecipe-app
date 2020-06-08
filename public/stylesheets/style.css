@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  cursor: url("../images/frypan.cur"), auto;
+  cursor: url("/images/frypan.png"), auto;
   font-family: 'Acme', sans-serif;
 }
 
@@ -355,6 +355,8 @@ img {
   box-shadow: 0 3px 3px black;
   border: 3px solid black;
   font-size: 18px;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 #instructions-text::placeholder {
@@ -419,6 +421,8 @@ img {
   box-shadow: 5px 5px 3px black;
   border: 2px solid black;
   font-size: 18px;
+  border-radius: 60px;
+  padding: 0 10px;
 }
 
 .recipe-input::placeholder {
@@ -595,7 +599,7 @@ textarea {
 
 #favorite-btn {
   height: 50px;
-  margin: 30px;
+  margin: 30px 30px 30px 0;
   border-radius: 60px;
 }
 

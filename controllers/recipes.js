@@ -1,6 +1,5 @@
 const Recipe = require('../models/recipe');
 const Comment = require('../models/comment');
-const Ingredient = require('../models/ingredient');
 
 module.exports = {
     index,

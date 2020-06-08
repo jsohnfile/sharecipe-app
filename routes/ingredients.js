@@ -4,7 +4,7 @@ const router = express.Router();
 const ingredientsCtrl = require('../controllers/ingredients');
 
 router.post('/ingredients', isLoggedIn, ingredientsCtrl.create);
-router.delete('/ingredients/:id', isLoggedIn, ingredientsCtrl.delete)
+router.post('/ingredients/:id', isLoggedIn, ingredientsCtrl.delete)
 
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()) return next();

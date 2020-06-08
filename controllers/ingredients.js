@@ -1,4 +1,3 @@
-const Recipe = require('../models/recipe');
 const Ingredient = require('../models/ingredient')
 
 module.exports ={
@@ -8,7 +7,7 @@ module.exports ={
 
 function deleteIngredient(req, res) {
     Ingredient.findByIdAndDelete(req.params.id, function(err){
-        Ingredient.create(req.body, function(err,ingredient){
+        Ingredient.create(req.body, function(err){
             Ingredient.find({}, function(err, ingredients){
                 let ingredient = ingredients[ingredients.length - 1]
                 res.render("myaccount/new", {title: 'Add A Recipe', ingredient, ingredients});
