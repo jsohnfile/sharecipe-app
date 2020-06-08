@@ -49,4 +49,4 @@ Sharecipe is an app that allows users to share recipes with one another within t
 ## Next Steps
 
 - Allow user to crop image
-
+- Add a category for each recipe
