@@ -12,8 +12,9 @@ module.exports = {
 function deleteComment(req, res){
     Comment.findByIdAndDelete(req.params.cid, function(err){
         Recipe.findById(req.params.id, function(err, recipe){
-            Comment.find({}, function(err,comments) {})
-            res.render(`/recipes/${recipe._id}`);
+            Comment.find({}, function(err,comments){
+                res.redirect(`/recipes/${recipe._id}`);
+            });
         });
     });
 }
