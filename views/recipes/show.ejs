@@ -9,7 +9,6 @@
             type="submit"><%= user.favorites.includes(recipe._id)? 'Remove From Favorites' : 'Add To Favorites' %> </button>
          </form>
       <% } %>
-
       <img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
       <section class="full-instructions">
          <p><strong>Ingredients: </strong></p>
@@ -27,23 +26,20 @@
          <% if(user) { %>
             <form id="add-comment-form" method="POST" action="/recipes/<%= recipe._id %>/comments">
                <p class="comment-header"><img class="profile-pic" src="<%= user.avatar %>"><small id="username-comment"> <%= user.username %> </small></p>
-               <div id="add-comment-input">
-                  <textarea id="comments-text" name="content" placeholder="Leave A Comment.." rows="1" cols="50"></textarea>
-                  <button id="add-comment-btn" type="submit" >Add Comment</button>
-               </div>
+               <textarea id="comments-text" name="content" placeholder="Leave A Comment.." rows="1" cols="50"></textarea>
+               <button id="add-comment-btn" type="submit" >Add Comment</button>
             </form>
          <% } %>
          <% if(comments.length){ %>
             <% comments.sort((a, b) => b.createdAt - a.createdAt); %>
             <% comments.forEach(function(comment) { %>
-               <br>
-               <div id="comment">
+               <br><div id="comment">
                   <p class="comment-header"><img class="profile-pic" src="<%= comment.user.avatar %>"><small><%= comment.user.username %>&nbsp;&nbsp;<em>posted on <%= comment.createdAt.toLocaleDateString() %></em></small> </p>
                   <div class="comment-content"><%= comment.content %></div>
                </div>
             <% }) %>
          <% } else { %>
-         <h5>Be the first to comment!</h5>
+            <h5>Be the first to comment!</h5>
          <% } %>
       </section>
    </div>

@@ -164,7 +164,6 @@ body > main {
   text-shadow: -1px 0px 6px black;
   text-align: center;
   width: 300px;
-
 }
 
 h3 {
@@ -279,7 +278,7 @@ img {
 #comment {
   border-radius: 20px;
   box-shadow: 5px 5px 5px black;
-  border: 2px solid gray;
+  border: 2px solid white;
   padding: 5px 25px 25px 25px;
   width: 100%;
   color: white;
@@ -367,13 +366,10 @@ img {
 }
 
 #comments-text {
-  width: 80%;
+  width: 100%;
   height: 50px;
-  border-radius: 60px 0 0 60px;
-  border-top: 2px solid gray;
-  border-right:  nome;
-  border-bottom: 2px solid gray;
-  border-left: 2px solid gray;
+  border-radius: 60px;
+  border: 3px solid white;
   padding: 15px;
   box-shadow: 0 5px 2px black;
   background-color: rgba(95, 89, 89, 0.7);
@@ -384,30 +380,28 @@ img {
 
 #comments-text::placeholder {
   color: white;
+  text-shadow: 0 3px 3px black;
   font-style: italic;
-  opacity: 0.7;
-  font-size: 18px;
+  opacity: 0.8;
+  font-size: 12px;
 }
 
 #add-comment-btn {
-  width: 20%;
-  border-radius: 0 60px 60px 0;
-  height: 50px;
-  box-shadow: 0 5px 2px black;
-  padding: 15px;
-  background-color: lightgray;
-  border: 3px solid gray;
-  border-left: none;
+  border-radius: 60px;
+  box-shadow: 0 3px 3px black;
+  border: 2px solid white;
+  background-color: rgba(78, 64, 64, 0.8);
+  color: white;
+  text-shadow: 0 3px 3px black;
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 10px;
 }
 
 #add-comment-btn:hover {
   background-color: rgba(97, 91, 91, 0.9);
   color: white;
   text-shadow: 0 3px 3px black;
-}
-
-#add-comment-input{
-  display: flex;
 }
 
 .pill {
@@ -426,7 +420,8 @@ img {
   border: 2px solid black;
   font-size: 18px;
 }
-.recipe-input::placeholder{
+
+.recipe-input::placeholder {
   color: white;
   font-style: italic;
   opacity: 0.8;
@@ -592,6 +587,7 @@ textarea {
   color: black;
   text-shadow: 0 3px 3px white;
 }
+
 #status {
   margin: 50px 0;
   font-size: 20px;
@@ -643,7 +639,7 @@ textarea {
   .navlink:hover {
     text-shadow: 3px 5px 12px lightgrey;
     font-weight: bold;
-    color: gray;
+    color: white;
     font-size: 21px;
   }
 
@@ -678,19 +674,6 @@ textarea {
   #login-dropdown{
     display: none;
   }
-  body > main {
-    background: url(https://i.imgur.com/d2N6JbG.jpg) no-repeat center center fixed;
-    background-size: cover;
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    overflow-y: scroll;
-    text-shadow: 0px 1px 4px black;
-    width: 100%;
-    height: 100%;
-  }
 
   #search-container {
     width: 363px;
@@ -723,5 +706,11 @@ textarea {
     width: 60%;
     font-size: 25px;
   }
+
+  #comments-text::placeholder {
+    font-size: 18px;
+  }
+
+
 
 }

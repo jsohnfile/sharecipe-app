@@ -5,13 +5,13 @@ const Ingredient = require('../models/ingredient');
 module.exports = {
     index,
     show,
-    search,
+    search
 }
 
 function search(req, res) {
     Recipe.find({ "ingredients": { "$regex": req.body.search, "$options": "i" }, share: true}, function(err, recipes){
         res.render('recipes/search', {title: 'Sharecipes', recipes})
-    })
+    });
 }
 
 function show(req, res) {
@@ -19,8 +19,8 @@ function show(req, res) {
         Comment.find({recipe: recipe._id}).populate('user')
         .exec(function(err, comments){
             res.render('recipes/show', {title: recipe.title, recipe, comments})
-        })
-    })
+        });
+    });
 }
 
 function index(req, res) {

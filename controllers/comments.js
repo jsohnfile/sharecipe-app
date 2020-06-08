@@ -11,7 +11,6 @@ function createComment(req, res) {
     Recipe.findById(req.params.id, function(err, recipe){
         Comment.create(req.body, function(err, comment){
             res.redirect(`/recipes/${recipe._id}`);
-        })
-
-    })
+        });
+    });
 }

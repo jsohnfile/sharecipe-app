@@ -3,29 +3,27 @@
 
 <section class="recipe-form">
   <form action="/myaccount" method="POST">
-      <label>Title: <input class="recipe-input" type="text" name="title" value="<%= ingredient ? ingredient.title : "" %>" maxlength="54"><br></label>
-      <br><label>Ingredient(<small>Please Enter Qty/Unit of Measurement ie.</small>): <br>
-        <input class="recipe-input" type="text" name="name" placeholder="ie. steak - 8oz">
-          <button id="add-ingredient"type="submit" formaction="/ingredients" method="POST">Add</button><br>
-          
-      </label>
-       <% if(ingredients.length) { %>
-              <% ingredients.forEach(function(ingredient) { %>
-              <button class="pill" type="submit" formaction="/ingredients/<%= ingredient._id %>?_method=DELETE" method="POST">x <%= ingredient.name %></button>
-              <input type="hidden" value="<%= ingredient.name %>" name ="ingredients">
-             <% }); %>
-        <% } %>
+    <label>Title: <input class="recipe-input" type="text" name="title" value="<%= ingredient ? ingredient.title : "" %>" maxlength="54"><br></label>
+    <br><br><label>Ingredient(<small>Please Enter Qty/Unit of Measurement ie.</small>): <br>
+        <input id="ingredient-input" class="recipe-input" type="text" name="name" placeholder="ie. steak - 8oz">
+        <button id="add-ingredient"type="submit" formaction="/ingredients" method="POST">Add</button><br>  
+    </label>
+    <% if(ingredients.length) { %>
+        <% ingredients.forEach(function(ingredient) { %>
+                <button class="pill" type="submit" formaction="/ingredients/<%= ingredient._id %>?_method=DELETE" method="POST">x <%= ingredient.name %></button>
+                <input type="hidden" value="<%= ingredient.name %>" name ="ingredients">
+        <% }); %>
+    <% } %>
         
-        <br><label>Instructions: <br>
-      <textarea id="instructions-text" name="instructions" placeholder="ie. 
+    <br><br><label>Instructions: <br>
+    <textarea id="instructions-text" name="instructions" placeholder="ie. 
       Serving Size: 4
       Preparation time: 45 minutes
       Step 1: Wash your chicken"><%= ingredient ? ingredient.instructions: "" %></textarea><br></label>
-      <br><label>Image URL: <input class="recipe-input" type="text" name="imgUrl" value="<%= ingredient ? ingredient.imgUrl: "" %>"></label>
-      <br><label>Reference Link: <input class="recipe-input" type="text" name="refLink" value="<%= ingredient ? ingredient.refLink: "" %>"> </label>
-      <input id="checkbox" type="checkbox" name="share" <%=ingredient ? (ingredient.share ? 'checked' : '') : "" %>> Share with everyone <br>
-      <input id="add-recipe-btn" type="submit" value="Add Recipe">
-      
+    <br><br><label>Image URL: <input class="recipe-input" type="text" name="imgUrl" value="<%= ingredient ? ingredient.imgUrl: "" %>"></label>
+    <br><br><label>Reference Link: <input class="recipe-input" type="text" name="refLink" value="<%= ingredient ? ingredient.refLink: "" %>"> </label>
+    <input id="checkbox" type="checkbox" name="share" <%=ingredient ? (ingredient.share ? 'checked' : '') : "" %>> Share with everyone <br>
+    <input id="add-recipe-btn" type="submit" value="Add Recipe">  
   </form> 
 </section>
 

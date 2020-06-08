@@ -11,10 +11,9 @@
         <% recipes.forEach(function(recipe) { %>
             <div class= "recipe">
                 <p class="recipe-header"><strong><%= recipe.title %></strong></p>
-                <img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>"><br>
+                <div id="imgage-container"><img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>"><br></div>
                 <div class="view-recipe-btn-div"><a href="/myaccount/<%= recipe._id %>"><button class="view-recipe-btn">View Recipe</button></a></div>
-            </div><br><br>
-        
+            </div><br><br>      
         <% }) %>
     <% } else { %>
         <h3>Add a Sharecipe..</h3>

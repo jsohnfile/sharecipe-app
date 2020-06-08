@@ -12,12 +12,11 @@
                 <p class="recipe-header"><strong><%= recipe.title %></strong></p>
                 <img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>"><br>
                 <div class="view-recipe-btn-div"><a href="/recipes/<%= recipe._id %>"><button class="view-recipe-btn">View Recipe</button></a></div>
-            </div><br><br>
-        
+            </div><br><br>        
         <% }) %>
     <% } else { %>
         <h3>Add a favorite SHARECIPE..</h3>
     <% } %>
     </section>
-
+    
 <%- include('../partials/footer.ejs') %> 

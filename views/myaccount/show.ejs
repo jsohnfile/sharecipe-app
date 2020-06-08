@@ -1,28 +1,31 @@
 <%- include('../partials/header.ejs') %> 
 
-<p class="heading"><%= recipe.title %></p>
-
-<a href="myaccount/new"><button id="add-recipe-btn">Add a New Recipe</button></a><br><br>
-        <div class= "recipe-detail">
-            <div id="recipe-edit-btns">
-                <a href="/myaccount/<%= recipe._id %>/edit"><button class="btn">Edit Recipe</button></a>
-                <form action="/myaccount/<%= recipe._id %>?_method=DELETE" method="POST" style="display:inline;">
-                    <input class="btn" type="submit" value="Delete">
-                </form>
-            </div>
-            <p id="status" >Status: <span id="status-message"><%= recipe.share ? 'Shared' : 'Private' %></span></p>
-            <img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
-            <section class="full-instructions">
-                <p><strong>Ingredients:</strong></p>
-                    <ul>
-                    <% recipe.ingredients.forEach(function(ingredient) { %>
-                       <li> <%= ingredient %> </li>
-                    <% }) %>
-                    </ul>
-                <p ><strong>Instructions: </strong></p>
-                    <p id="instructions"><%= recipe.instructions %></p>
-                    <p>Reference link: <a class="oc-link" href="<%= recipe.refLink %>">Original Content</a></p>
-            </section>
-        </div><br><br>
+<p class="heading"> My SHARECIPES</p>
+<div id="myaccount-btns">
+    <a href="myaccount/new"><button id="add-recipe-btn">Add a New Recipe</button></a>
+    <a href="myaccount/myfavorites"><button id="add-recipe-btn">My Favorites</button></a><br><br>
+</div>
+<div class= "recipe-detail">
+    <div id="recipe-edit-btns">
+        <a href="/myaccount/<%= recipe._id %>/edit"><button class="btn">Edit Recipe</button></a>
+        <form action="/myaccount/<%= recipe._id %>?_method=DELETE" method="POST" style="display:inline;">
+            <input class="btn" type="submit" value="Delete">
+        </form>
+    </div>
+    <p id="status">Status: <span id="status-message"><%= recipe.share ? 'Shared' : 'Private' %></span></p>
+    <p class="heading"><%= recipe.title %></p>
+    <img class="image" src="<%= recipe.imgUrl %>" alt="<%= recipe.title %>">
+    <section class="full-instructions">
+        <p><strong>Ingredients:</strong></p>
+        <ul>
+            <% recipe.ingredients.forEach(function(ingredient) { %>
+                <li> <%= ingredient %> </li>
+            <% }) %>
+        </ul>
+        <p ><strong>Instructions: </strong></p>
+        <p id="instructions"><%= recipe.instructions %></p>
+        <p>Reference link: <a class="oc-link" href="<%= recipe.refLink %>">Original Content</a></p>
+    </section>
+</div>
 
 <%- include('../partials/footer.ejs') %> 
