@@ -71,7 +71,6 @@ function index(req, res) {
 
 function edit(req, res) {
     Recipe.findById(req.params.id, function(err, recipe) {
-        console.log(recipe)
         res.render('myaccount/edit', {title: 'Edit Recipe', recipe})
      });
 }

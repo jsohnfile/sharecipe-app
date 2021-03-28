@@ -3,16 +3,16 @@ const router = express.Router();
 const myaccountCtrl = require('../controllers/myaccount');
 
 router.get('/', hasUsername, isLoggedIn, myaccountCtrl.index)
-router.get('/new', isLoggedIn, myaccountCtrl.new);
-router.put('/', isLoggedIn, myaccountCtrl.edit)
-router.get('/myfavorites', isLoggedIn, myaccountCtrl.showFavorites)
-router.get('/:id', isLoggedIn, myaccountCtrl.show)
-router.delete('/:id', isLoggedIn, myaccountCtrl.delete)
-router.post('/', isLoggedIn, myaccountCtrl.create);
-router.get('/:id/edit', isLoggedIn, myaccountCtrl.edit)
-router.put('/:id', isLoggedIn, myaccountCtrl.update)
-router.put('/ingredient/:id', isLoggedIn, myaccountCtrl.addIngredient)
-router.put('/ingredient/:id/:idx', isLoggedIn, myaccountCtrl.updateIngredients)
+router.get('/new', hasUsername,isLoggedIn, myaccountCtrl.new);
+router.put('/', hasUsername,isLoggedIn, myaccountCtrl.edit)
+router.get('/myfavorites', hasUsername,isLoggedIn, myaccountCtrl.showFavorites)
+router.get('/:id', hasUsername,isLoggedIn, myaccountCtrl.show)
+router.delete('/:id', hasUsername,sLoggedIn, myaccountCtrl.delete)
+router.post('/', hasUsername,isLoggedIn, myaccountCtrl.create);
+router.get('/:id/edit', hasUsername,sLoggedIn, myaccountCtrl.edit)
+router.put('/:id', hasUsername,isLoggedIn, myaccountCtrl.update)
+router.put('/ingredient/:id', hasUsername,sLoggedIn, myaccountCtrl.addIngredient)
+router.put('/ingredient/:id/:idx', hasUsername,isLoggedIn, myaccountCtrl.updateIngredients)
 
 module.exports = router;
 

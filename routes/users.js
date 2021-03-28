@@ -32,7 +32,6 @@ router.put('/users', function(req, res){
           if(err){
             console.log('something went wrong')
           }
-          console.log("user after add:", user)
           res.redirect('/myaccount')
         })
       })
@@ -42,8 +41,6 @@ router.put('/users', function(req, res){
 })
 
 router.put('/users/:id', function(req,res){
-  console.log(req.user, "<--req.user")
-  console.log(req.user._id,"req.user._id")
   User.findById(req.user._id, function(err, user){
     let value = user.favorites.includes(req.params.id)
     if(value) {
@@ -53,7 +50,6 @@ router.put('/users/:id', function(req,res){
       user.favorites.push(req.params.id);
     }
     user.save(function(err){
-      console.log(user, "<----user")
       res.redirect(`/recipes/${req.params.id}`)
     });
   });

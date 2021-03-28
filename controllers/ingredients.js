@@ -10,9 +10,7 @@ function deleteIngredient(req, res) {
     Ingredient.create(req.body, function(err, ingredient){
         Ingredient.findByIdAndDelete(req.params.id, function(err){
             Ingredient.find({}, function(err, ingredients){
-                console.log('ingredients', ingredients)
                 let ingredient=ingredients[ingredients.length-1]
-                console.log('ingredient', ingredient)
                 res.render("myaccount/new", {title: 'Add A Recipe', ingredient, ingredients});
             });
         });
