@@ -8,11 +8,11 @@ router.put('/', hasUsername, isLoggedIn, myaccountCtrl.edit)
 router.get('/myfavorites', hasUsername, isLoggedIn, myaccountCtrl.showFavorites)
 router.get('/:id', hasUsername, isLoggedIn, myaccountCtrl.show)
 router.delete('/:id', hasUsername, isLoggedIn, myaccountCtrl.delete)
-router.post('/', hasUsername,isLoggedIn, myaccountCtrl.create);
-router.get('/:id/edit', hasUsername,sLoggedIn, myaccountCtrl.edit)
-router.put('/:id', hasUsername,isLoggedIn, myaccountCtrl.update)
-router.put('/ingredient/:id', hasUsername,sLoggedIn, myaccountCtrl.addIngredient)
-router.put('/ingredient/:id/:idx', hasUsername,isLoggedIn, myaccountCtrl.updateIngredients)
+router.post('/', hasUsername, isLoggedIn, myaccountCtrl.create);
+router.get('/:id/edit', hasUsername, isLoggedIn, myaccountCtrl.edit)
+router.put('/:id', hasUsername, isLoggedIn, myaccountCtrl.update)
+router.put('/ingredient/:id', hasUsername, isLoggedIn, myaccountCtrl.addIngredient)
+router.put('/ingredient/:id/:idx', hasUsername, isLoggedIn, myaccountCtrl.updateIngredients)
 
 module.exports = router;
 
